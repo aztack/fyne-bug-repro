@@ -1,0 +1,21 @@
+{
+  "name": "node-app-launcher",
+  "version": "0.0.5",
+  "description": "",
+  "devDependencies": {},
+  "scripts": {
+    "build:win": "yarn gen-version && bash build-windows.sh",
+    "build:darwin": "yarn gen-version && bash build-darwin.sh",
+    "pack:win": "node scripts/pack.js win32",
+    "pack:darwin": "node scripts/pack.js darwin",
+    "buildpack:win": "yarn build:win && yarn pack:win",
+    "buildpack:darwin": "yarn build:darwin && yarn pack:darwin",
+    "buildall": "yarn buildpack:win && yarn buildpack:darwin",
+    "build4attach": "go build -gcflags=\"all=-N -l\" .",
+    "gen-version": "node scripts/gen-version.js",
+    "clean": "rm logs/*.log"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
